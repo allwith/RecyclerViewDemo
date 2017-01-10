@@ -37,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public void setData(int position) {
             pokemon_img.setImageResource(pokemonsList[position % pokemonsList.length]);
-            pokemon_name.setText("Pokemon" + position);
+            pokemon_name.setText("NO." + position);
         }
     }
 
@@ -82,6 +82,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
      */
     @Override
     public int getItemCount() {
-        return 15;
+        return 50;
     }
 }
