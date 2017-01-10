@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 //        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         //RecyclerView 网格布局效果
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this,3,LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(gridLayoutManager);
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this,3,LinearLayoutManager.HORIZONTAL,false);
+        //瀑布流布局效果，子项内容高低不同，效果才明显
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
         MyAdapter adapter = new MyAdapter(this);
         recyclerView.setAdapter(adapter);
     }
