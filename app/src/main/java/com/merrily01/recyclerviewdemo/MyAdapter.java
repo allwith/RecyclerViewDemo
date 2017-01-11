@@ -17,10 +17,12 @@ import android.widget.TextView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     Context context;
-    int pokemonsList[] = {R.drawable.img_bulbasaur, R.drawable.img_caterpie, R.drawable.img_charmander,
-            R.drawable.img_fearow, R.drawable.img_nidoking, R.drawable.img_nidoqueen, R.drawable.img_oddish,
-            R.drawable.img_p, R.drawable.img_rattata, R.drawable.img_sandslash, R.drawable.img_squirtle,
-            R.drawable.img_vulpix, R.drawable.img_weedle};
+    int pokemonsList[] = {R.drawable.p1, R.drawable.p2, R.drawable.p3,
+            R.drawable.p4, R.drawable.p6, R.drawable.p7,
+            R.drawable.p8, R.drawable.p9, R.drawable.p10, R.drawable.p11,
+            R.drawable.p12, R.drawable.p13,R.drawable.p14,R.drawable.p15,
+            R.drawable.p16,R.drawable.p17,R.drawable.p18,R.drawable.p19,
+            R.drawable.p20,R.drawable.p21,R.drawable.img_bulbasaur};
 
     /**
      * 内部类ViewHolder
@@ -82,6 +84,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
      */
     @Override
     public int getItemCount() {
-        return 50;
+        return 30;
     }
 }
