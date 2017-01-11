@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 /**
@@ -17,12 +20,12 @@ import android.widget.TextView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     Context context;
-    int pokemonsList[] = {R.drawable.p1, R.drawable.p2, R.drawable.p3,
+    int pokemonsList[] = {R.drawable.p1, R.drawable.p18, R.drawable.p3,
             R.drawable.p4, R.drawable.p6, R.drawable.p7,
             R.drawable.p8, R.drawable.p9, R.drawable.p10, R.drawable.p11,
             R.drawable.p12, R.drawable.p13,R.drawable.p14,R.drawable.p15,
             R.drawable.p16,R.drawable.p17,R.drawable.p18,R.drawable.p19,
-            R.drawable.p20,R.drawable.p21,R.drawable.img_bulbasaur};
+            R.drawable.p20,R.drawable.p21};
 
     /**
      * 内部类ViewHolder
@@ -41,6 +44,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             pokemon_img.setImageResource(pokemonsList[position % pokemonsList.length]);
             pokemon_name.setText("NO." + position);
         }
+
+//        /**
+//         * 添加item
+//         * @param position
+//         */
+//        public void addItem(int position) {
+//            list.add(position,"AAAAA");
+//            notifyItemInserted(position);
+//        }
+//
+//        /**
+//         * 删除item
+//         * @param position
+//         */
+//        public void removeItem(int position) {
+//            list.remove(position);
+//            notifyItemRemoved(position);
+//        }
     }
 
     /**
@@ -62,7 +83,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pokemon_item, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        final ViewHolder viewHolder = new ViewHolder(view);
+        viewHolder.pokemon_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = viewHolder.getAdapterPosition();
+                Toast.makeText(v.getContext(), "ShortClick Picture NO." + position,Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewHolder.pokemon_name.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int position = viewHolder.getAdapterPosition();
+                Toast.makeText(v.getContext(), "LongClick Name NO." + position, Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
         return viewHolder;
     }
 
